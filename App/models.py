@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 
@@ -119,8 +120,16 @@ class OrderPlaced(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     status = models.CharField(max_length=50,choices=STATE_CHOICES,default="pending")
     payment = models.ForeignKey(Payment,on_delete=models.CASCADE,default="")
-    ordered_date = models.DateTimeField(auto_now_add=True) 
+    ordered_date = models.DateTimeField(default=timezone.now) 
 
     @property
     def total_cost(self):
         return self.quantity * self.product.discounted_price
+    
+
+
+
+class Wishlist(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+

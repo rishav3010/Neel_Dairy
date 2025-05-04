@@ -131,5 +131,5 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
 
-RAZORPAY_API_KEY = "rzp_test_abc123xyz456"
-RAZORPAY_API_SECRET = "secret123456789"
+RAZORPAY_API_KEY = "rzp_test_LyqnbeURn0vnnv"
+RAZORPAY_API_SECRET = "PcRA8VMDYgm0PTlrRx0FwzSh"
